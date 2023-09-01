@@ -39,7 +39,7 @@ func main() {
 	err = m.SetBodyHTMLTemplate(tpl, struct {
 		Classes []class
 	}{
-		Classes: getTodayClasses(),
+		Classes: sortClasses(getTodayClasses()),
 	})
 	if err != nil {
 		return
@@ -55,9 +55,10 @@ func main() {
 }
 
 type class struct {
-	Name  string
-	Start string
-	End   string
+	Name      string
+	Start     string
+	End       string
+	ClassRoom string
 }
 
 func getTodayClasses() []class {
@@ -76,7 +77,24 @@ func getTodayClasses() []class {
 	c.Parse()
 
 	for _, e := range c.Events {
-		classes = append(classes, class{Name: e.Summary, Start: e.Start.Format("15:04"), End: e.End.Format("15:04")})
+		classes = append(classes, class{Name: e.Summary, Start: e.Start.Format("15:04"), End: e.End.Format("15:04"), ClassRoom: e.Location})
 	}
+	return classes
+}
+
+func sortClasses(classes []class) []class {
+
+	if len(classes) == 0 {
+		return classes
+	}
+	// sort by start time
+	for i := 0; i < len(classes); i++ {
+		for j := i + 1; j < len(classes); j++ {
+			if classes[i].Start > classes[j].Start {
+				classes[i], classes[j] = classes[j], classes[i]
+			}
+		}
+	}
+
 	return classes
 }
