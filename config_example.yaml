@@ -4,3 +4,4 @@ STMPServer: stmp.server.com
 STMPPort: 25
 Username: me@example.com
 Password: extremely_secret_password
+IcsFileName: classes.ics
