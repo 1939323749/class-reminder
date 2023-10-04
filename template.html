@@ -21,7 +21,7 @@
 </style>
 <body>
 <span class="preheader">今天的课程,请查看</span>
-<div style="width: 320px; height: 700px; padding-bottom: 24px; background: #1D1B20; border-radius: 16px; overflow: hidden; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+<div style="width: 360px; height: 700px; padding-bottom: 24px; background: #1D1B20; border-radius: 16px; overflow: hidden; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
     <div style="align-self: stretch; padding-top: 12px; padding-bottom: 16px; padding-left: 24px; padding-right: 12px; justify-content: flex-start; align-items: flex-start; display: inline-flex">
         <div style="flex: 1 1 0; height: 40px; padding-top: 12px; justify-content: flex-start; align-items: flex-start; display: flex">
             <div style="flex: 1 1 0; color: #CAC4D0; font-size: 22px; font-family: Roboto; font-weight: 400; line-height: 28px; word-wrap: break-word">今日课程</div>
@@ -44,7 +44,11 @@
 
     {{- end }}
     {{- else }}
-    今天没有课哦.
+            <div style="align-self: stretch; padding-top: 12px; padding-bottom: 12px; padding-left: 16px; padding-right: 24px; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+                <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                    <div style="align-self: stretch; color: #E6E0E9; font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 24px; letter-spacing: 0.50px; word-wrap: break-word">今天没有课哦.</div>
+                </div>
+            </div>
     {{- end }}
         </div>
     </div>
